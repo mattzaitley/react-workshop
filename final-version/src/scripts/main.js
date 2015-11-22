@@ -56,6 +56,7 @@ var WeatherApp = React.createClass({
         }
         <ForecastContainer city={this.state.city}>
           {forecast}
+          <Loader />
         </ForecastContainer>
       </div>
     )
@@ -133,5 +134,17 @@ var ForecastDay = React.createClass({
   }
 
 });
+
+var Loader = React.createClass({
+  render: function() {
+    return (
+      <div className="spinner">
+        <div className="bounce1"></div>
+        <div className="bounce2"></div>
+        <div className="bounce3"></div>
+      </div>
+    )
+  }
+})
 
 ReactDOM.render(<WeatherApp />, document.getElementById('main'));
