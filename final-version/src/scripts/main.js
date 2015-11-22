@@ -56,7 +56,6 @@ var WeatherApp = React.createClass({
         }
         <ForecastContainer city={this.state.city}>
           {forecast}
-          <Loader />
         </ForecastContainer>
       </div>
     )
