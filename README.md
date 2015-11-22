@@ -5,12 +5,12 @@
 Make sure you have node installed and gulp installed globally
 `npm install gulp -g`
 
-```git clone https://github.com/mattfairley/react-workshop.git
+`git clone https://github.com/mattfairley/react-workshop.git`
 
-cd react-workshop
+`cd react-workshop`
 
-npm install
+`npm install`
 
-cd start-here
+`cd start-here`
 
-gulp```
+`gulp`
