@@ -42,7 +42,7 @@ var WeatherApp = React.createClass({
   render: function() {
 
     var forecast = this.state.forecastData.map((data, i) => {
-      return <ForecastDay key={i} data={data} /> 
+      return <ForecastDay key={i} temp={data.temp} weather={data.weather} date={data.date} /> 
     });
 
     return (
@@ -115,35 +115,17 @@ var ForecastContainer = React.createClass({
 var ForecastDay = React.createClass({
 
   render: function() {
-    console.log(this.props.data);
-
-    var dateString = `${this.props.data.date.month}. ${this.props.data.date.day}`;
 
     return (
       <div className="forecast">
-          <div className="forecast-date">{dateString}</div>
-          <div className="forecast-temperature">{this.props.data.temp}&deg;</div>
-          <div className="forecast-description">
-            {this.props.data.weather}
-          </div>
-          <img className="forecast-icon" src={`http://openweathermap.org/img/w/${this.props.data.icon}.png`} />
+          <div className="forecast-date">{this.props.date}</div>
+          <div className="forecast-temperature">{this.props.temp}&deg;</div>
+          <div className="forecast-description">{this.props.weather}</div>
       </div>
     )
 
   }
 
 });
-
-var Loader = React.createClass({
-  render: function() {
-    return (
-      <div className="spinner">
-        <div className="bounce1"></div>
-        <div className="bounce2"></div>
-        <div className="bounce3"></div>
-      </div>
-    )
-  }
-})
 
 ReactDOM.render(<WeatherApp />, document.getElementById('main'));

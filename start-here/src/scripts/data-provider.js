@@ -63,10 +63,7 @@ DataProvider.prototype.parseResponse = function(response) {
 DataProvider.prototype.parseUnix = function(unixTime) {
   
   var date = new Date(unixTime * 1000);
-  return {
-    day: date.getDate(),
-    month: DataProvider.MONTH_NAMES[date.getMonth()].substring(0,3)
-  };
+  return DataProvider.MONTH_NAMES[date.getMonth()].substring(0,3) + ' ' + date.getDate();
 
 };
 
