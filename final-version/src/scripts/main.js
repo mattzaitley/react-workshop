@@ -1,6 +1,8 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
 
+var css = require('../styles/main.scss');
+
 var DataProvider = require('./data-provider');
 var dataProvider = new DataProvider();
 
@@ -47,7 +49,7 @@ var WeatherApp = React.createClass({
 
     return (
       <div className="app-container">
-        <h1>React forecast app</h1>
+        <h1>React is cool app</h1>
         <CityInput onSubmit={this.getData} />
         {this.state.city ? 
           <button onClick={this.clearForecast}>Clear</button> 
