@@ -43,6 +43,8 @@ body {
 }
 main {
   padding: 0 20px;
+  max-width: 600px;
+  margin: 0 auto;
 }
 
 input[type="text"] {
@@ -68,11 +70,12 @@ button {
 }
 
 .app-container {
+  padding: 0 20px;
   max-width: 600px;
   margin: 0 auto;
 }
 
-.input-form {
+form {
   padding: 10px;
   text-align: center;
 }

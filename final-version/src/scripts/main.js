@@ -23,7 +23,6 @@ var WeatherApp = React.createClass({
 
   getData: function(city) {
     dataProvider.getWeather(city, (err, data) => {
-      console.log(data);
       if (!err) {
         this.setState({
           city: data.city,
@@ -38,18 +37,18 @@ var WeatherApp = React.createClass({
     this.setState({
       city: null,
       forecastData: []
-    })
+    });
   },
 
   render: function() {
 
     var forecast = this.state.forecastData.map((data, i) => {
-      return <ForecastDay key={i} temp={data.temp} weather={data.weather} date={data.date} /> 
+      return <ForecastDay key={data.date + i} temp={data.temp} weather={data.weather} date={data.date} /> 
     });
 
     return (
-      <div className="app-container">
-        <h1>React is cool app</h1>
+      <main className="app-container">
+        <h1>React Forecast app</h1>
         <CityInput onSubmit={this.getData} />
         {this.state.city ? 
           <button onClick={this.clearForecast}>Clear</button> 
@@ -59,7 +58,7 @@ var WeatherApp = React.createClass({
         <ForecastContainer city={this.state.city}>
           {forecast}
         </ForecastContainer>
-      </div>
+      </main>
     )
   }
 

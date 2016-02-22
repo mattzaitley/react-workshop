@@ -1,4 +1,4 @@
-var $ = require('jquery');
+var request = require('superagent');
 
 var DataProvider = function(){};
 
@@ -18,23 +18,17 @@ DataProvider.prototype.getWeather = function(city, callback) {
     units: 'metric'
   };
 
-  $.ajax({
-    url: 'http://api.openweathermap.org/data/2.5/forecast/daily',
-    type: 'GET',
-    dataType: 'jsonp',
-    data: {
-      APPID: '7699bac00fc6df4c0ff4b215ca742fd0',
-      q: city,
-      cnt: 5,
-      units: 'metric'
-    },
-    success: function(response) {
-      callback(false, self.parseResponse(response));
-    },
-    error: function(response) {
-      callback(true, response);
-    }
-  });
+  request
+    .get('http://api.openweathermap.org/data/2.5/forecast/daily')
+    .query(data)
+    .end(function(err, response) {
+      console.log(err, response);
+      if (err) {
+        callback(true, response.body);
+      } else {
+        callback(false, self.parseResponse(response.body));
+      }
+    });
 
 };
 
@@ -64,6 +58,7 @@ DataProvider.prototype.parseUnix = function(unixTime) {
   
   var date = new Date(unixTime * 1000);
   return DataProvider.MONTH_NAMES[date.getMonth()].substring(0,3) + ' ' + date.getDate();
+
 
 };
 
