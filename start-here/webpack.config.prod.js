@@ -5,10 +5,10 @@ module.exports = {
 
   devtool: 'source-map',
   entry: [
-    './src/scripts/main.js'
+    './start-here/src/scripts/main.js'
   ],
   output: {
-    path: path.join(__dirname 'dist',
+    path: path.join(__dirname, 'dist'),
     publicPath: '/static/',
     filename: 'main.js',
   },
