@@ -1,6 +1,6 @@
 #React Workshop
 
-Welcome to the react workshop for the Nascent Hackathon. This code-along will help get you familiar with React and some of the core concepts: Components, state, props, rendering, and the component lifecycle.
+Welcome to the Side Project session on React. This code-along will help get you familiar with React and some of the core concepts: Components, state, props, rendering, and the component lifecycle.
 
 The project is organized into two main folders - final-version, which is what we will be making, and start-here, where you will be working. The project is run on Webpack with 🔥 hot module replacement 🔥, which works very much like browsersync to reload the page while we're working, but better (if harder to set up).
 
